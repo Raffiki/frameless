@@ -105,7 +105,8 @@ lazy val docs = project
   .settings(framelessSettings: _*)
   .settings(noPublishSettings: _*)
   .settings(scalacOptions --= Seq("-Xfatal-warnings", "-Ywarn-unused-import"))
-  .enablePlugins(TutPlugin)
+  .in(file("frameless-docs"))
+  .enablePlugins(MdocPlugin)
   .settings(crossTarget := file(".") / "docs" / "target")
   .settings(libraryDependencies ++= Seq(
     "org.apache.spark" %% "spark-core" % sparkVersion,
